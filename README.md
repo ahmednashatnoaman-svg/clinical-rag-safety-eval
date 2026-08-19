@@ -12,14 +12,14 @@ This project implements a dual-layer safety mechanism to ensure the generated me
 
 ```mermaid
 graph TD
-    A[User Query] --> B[Retrieve Documents (Chroma)]
-    B --> C{Confidence Check}
-    C -- "Score < Calibrated Threshold" --> D[Refusal Response]
-    C -- "Score >= Threshold" --> E[Generate Answer]
-    E --> F[Extract Generated Claims]
-    F --> G{Unsupported Claim Detector}
-    G -- "Lexical Overlap < 35%" --> H[Flag/Refusal]
-    G -- "Lexical Overlap >= 35%" --> I[Final Answer Delivery]
+    A["User Query"] --> B["Retrieve Documents (Chroma)"]
+    B --> C{"Confidence Check"}
+    C -- "Score < Calibrated Threshold" --> D["Refusal Response"]
+    C -- "Score >= Threshold" --> E["Generate Answer"]
+    E --> F["Extract Generated Claims"]
+    F --> G{"Unsupported Claim Detector"}
+    G -- "Lexical Overlap < 35%" --> H["Flag/Refusal"]
+    G -- "Lexical Overlap >= 35%" --> I["Final Answer Delivery"]
 
     classDef critical fill:#f9f,stroke:#333,stroke-width:2px;
     class C,G critical;
